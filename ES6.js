@@ -17,13 +17,9 @@ const pets = [{
 
 const getAge = (pet) => new Date().getFullYear() - pet.bornOn;
 
-let petsWithAge = [];
-pets.forEach
-( (pet) =>{  pet.age = getAge(pet);
 
-  petsWithAge.push(pet);
-  }
-);
+let petsWithAge = pets.map((pet) => {
+    return {...pet, age:getAge(pet)}});
 console.log(petsWithAge);
 
 let dogs = [];
@@ -33,5 +29,5 @@ console.log(dogs);
 
 let jasper;
 
-jasper = pets.find((pet) => (pet.name === "Jasper"));
+jasper = petsWithAge.find((pet) => (pet.name === "Jasper"));
 console.log("Jasper is " + jasper.age + " years old");
